@@ -6,5 +6,4 @@ COPY . /app
 RUN pip3 install -r /app/requirements.txt --no-cache-dir
 RUN pip install psycopg2-binary==2.9
 
-# Выполнить запуск сервера разработки при старте контейнера.
 CMD ["gunicorn", "api_yamdb.wsgi:application", "--bind", "0:8000" ]
