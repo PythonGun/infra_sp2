@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import User, ROLES
+from .models import ROLES, User
 
 
 class UserSignUpSerializer(serializers.ModelSerializer):

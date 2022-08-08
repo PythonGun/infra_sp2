@@ -1,7 +1,8 @@
+from api.permissions import AdminOrSuperuser
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 from django.shortcuts import get_object_or_404
-from rest_framework import viewsets, filters, status
+from rest_framework import filters, status, viewsets
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.exceptions import ValidationError
 from rest_framework.pagination import PageNumberPagination
@@ -9,10 +10,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
 
-from api.permissions import AdminOrSuperuser
 from .models import User
-from .serializers import UserAuthSerializer, CurrentUserSerializer
-from .serializers import UserSignUpSerializer, UserCreateSerializer
+from .serializers import (CurrentUserSerializer, UserAuthSerializer,
+                          UserCreateSerializer, UserSignUpSerializer)
 
 
 @api_view(['POST'])
